@@ -15,6 +15,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	defer db.Close()
 	orderRepository := database.NewOrderRepository(db)
 	uc := usecase.NewCalculateFinalPrice(orderRepository)
 
